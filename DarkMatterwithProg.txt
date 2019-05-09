@@ -1,0 +1,138 @@
+SELECT
+      halo.NumOfSubhalos as NumberOfSubhalos,
+      halo.Redshift as haloRedshift,
+      halo.GroupMass as halogroupMass,
+      halo.Group_M_Crit200 as haloVirialMass,
+      halo.Group_R_Crit200 as haloVirialRadius,
+      halo.Group_M_Crit500 as halo500Mass,
+      halo.Group_R_Crit500 as halo500Radius,
+      halo.Group_M_Mean200 as halo200meanMass,
+      halo.Group_R_Mean200 as halo200meanRadius,
+      halo.Group_M_Mean500 as halo500meanMass,
+      halo.Group_R_Mean500 as halo500meanRadius,
+      halo.Group_M_Crit2500 as halo2500Mass,
+      halo.Group_R_Crit2500 as halo2500RadiusMass,
+      halo.Group_M_Mean2500 as halo2500MassMean,
+      halo.Group_R_Mean2500 as halo2500RadiusMean,
+      onehalo.NumOfSubhalos as NumberOfSubonehalos,
+      onehalo.Redshift as onehaloRedshift,
+      onehalo.GroupMass as onehalogroupMass,
+      onehalo.Group_M_Crit200 as onehaloVirialMass,
+      onehalo.Group_R_Crit200 as onehaloVirialRadius,
+      onehalo.Group_M_Crit500 as onehalo500Mass,
+      onehalo.Group_R_Crit500 as onehalo500Radius,
+      onehalo.Group_M_Mean200 as onehalo200meanMass,
+      onehalo.Group_R_Mean200 as onehalo200meanRadius,
+      onehalo.Group_M_Mean500 as onehalo500meanMass,
+      onehalo.Group_R_Mean500 as onehalo500meanRadius,
+      onehalo.Group_M_Crit2500 as onehalo2500Mass,
+      onehalo.Group_R_Crit2500 as onehalo2500RadiusMass,
+      onehalo.Group_M_Mean2500 as onehalo2500MassMean,
+      onehalo.Group_R_Mean2500 as onehalo2500RadiusMean,
+      twohalo.NumOfSubhalos as NumberOfSubtwohalos,
+      twohalo.Redshift as twohaloRedshift,
+      twohalo.GroupMass as twohalogroupMass,
+      twohalo.Group_M_Crit200 as twohaloVirialMass,
+      twohalo.Group_R_Crit200 as twohaloVirialRadius,
+      twohalo.Group_M_Crit500 as twohalo500Mass,
+      twohalo.Group_R_Crit500 as twohalo500Radius,
+      twohalo.Group_M_Mean200 as twohalo200meanMass,
+      twohalo.Group_R_Mean200 as twohalo200meanRadius,
+      twohalo.Group_M_Mean500 as twohalo500meanMass,
+      twohalo.Group_R_Mean500 as twohalo500meanRadius,
+      twohalo.Group_M_Crit2500 as twohalo2500Mass,
+      twohalo.Group_R_Crit2500 as twohalo2500RadiusMass,
+      twohalo.Group_M_Mean2500 as twohalo2500MassMean,
+      twohalo.Group_R_Mean2500 as twohalo2500RadiusMean,
+      threehalo.NumOfSubhalos as NumberOfSubthreehalos,
+      threehalo.Redshift as threehaloRedshift,
+      threehalo.GroupMass as threehalogroupMass,
+      threehalo.Group_M_Crit200 as threehaloVirialMass,
+      threehalo.Group_R_Crit200 as threehaloVirialRadius,
+      threehalo.Group_M_Crit500 as threehalo500Mass,
+      threehalo.Group_R_Crit500 as threehalo500Radius,
+      threehalo.Group_M_Mean200 as threehalo200meanMass,
+      threehalo.Group_R_Mean200 as threehalo200meanRadius,
+      threehalo.Group_M_Mean500 as threehalo500meanMass,
+      threehalo.Group_R_Mean500 as threehalo500meanRadius,
+      threehalo.Group_M_Crit2500 as threehalo2500Mass,
+      threehalo.Group_R_Crit2500 as threehalo2500RadiusMass,
+      threehalo.Group_M_Mean2500 as threehalo2500MassMean,
+      threehalo.Group_R_Mean2500 as threehalo2500RadiusMean,
+      fourhalo.NumOfSubhalos as NumberOfSubfourhalos,
+      fourhalo.Redshift as fourhaloRedshift,
+      fourhalo.GroupMass as fourhalogroupMass,
+      fourhalo.Group_M_Crit200 as fourhaloVirialMass,
+      fourhalo.Group_R_Crit200 as fourhaloVirialRadius,
+      fourhalo.Group_M_Crit500 as fourhalo500Mass,
+      fourhalo.Group_R_Crit500 as fourhalo500Radius,
+      fourhalo.Group_M_Mean200 as fourhalo200meanMass,
+      fourhalo.Group_R_Mean200 as fourhalo200meanRadius,
+      fourhalo.Group_M_Mean500 as fourhalo500meanMass,
+      fourhalo.Group_R_Mean500 as fourhalo500meanRadius,
+      fourhalo.Group_M_Crit2500 as fourhalo2500Mass,
+      fourhalo.Group_R_Crit2500 as fourhalo2500RadiusMass,
+      fourhalo.Group_M_Mean2500 as fourhalo2500MassMean,
+      fourhalo.Group_R_Mean2500 as fourhalo2500RadiusMean,
+      fivehalo.NumOfSubhalos as NumberOfSubfivehalos,
+      fivehalo.Redshift as fivehaloRedshift,
+      fivehalo.GroupMass as fivehalogroupMass,
+      fivehalo.Group_M_Crit200 as fivehaloVirialMass,
+      fivehalo.Group_R_Crit200 as fivehaloVirialRadius,
+      fivehalo.Group_M_Crit500 as fivehalo500Mass,
+      fivehalo.Group_R_Crit500 as fivehalo500Radius,
+      fivehalo.Group_M_Mean200 as fivehalo200meanMass,
+      fivehalo.Group_R_Mean200 as fivehalo200meanRadius,
+      fivehalo.Group_M_Mean500 as fivehalo500meanMass,
+      fivehalo.Group_R_Mean500 as fivehalo500meanRadius,
+      fivehalo.Group_M_Crit2500 as fivehalo2500Mass,
+      fivehalo.Group_R_Crit2500 as fivehalo2500RadiusMass,
+      fivehalo.Group_M_Mean2500 as fivehalo2500MassMean,
+      fivehalo.Group_R_Mean2500 as fivehalo2500RadiusMean,
+      square(cg.Velocity_x) + square(cg.Velocity_y) + square(cg.Velocity_z) as cgVelocity,
+      square(oneprog.Velocity_x) + square(oneprog.Velocity_y) + square(oneprog.Velocity_z) as oneprogVelocity,
+      square(twoprog.Velocity_x) + square(twoprog.Velocity_y) + square(twoprog.Velocity_z) as twoprogVelocity,
+      square(threeprog.Velocity_x) + square(threeprog.Velocity_y) + square(threeprog.Velocity_z) as threeproVelocity,
+      square(fourprog.Velocity_x) + square(fourprog.Velocity_y) + square(fourprog.Velocity_z) as fourprogVelocity,
+      square(fiveprog.Velocity_x) + square(fiveprog.Velocity_y) + square(fiveprog.Velocity_z) as fiveprogVelocity
+
+FROM
+	DMONLY..L0100N1504_Subhalo as cg,
+	DMONLY..L0100N1504_FOF as halo,
+	DMONLY..L0100N1504_Subhalo as oneprog ,
+	DMONLY..L0100N1504_FOF as onehalo ,
+	DMONLY..L0100N1504_Subhalo as twoprog ,
+	DMONLY..L0100N1504_FOF as twohalo ,
+	DMONLY..L0100N1504_Subhalo as threeprog,
+	DMONLY..L0100N1504_FOF as threehalo ,
+	DMONLY..L0100N1504_Subhalo as fourprog ,
+	DMONLY..L0100N1504_FOF as fourhalo ,
+	DMONLY..L0100N1504_Subhalo as fiveprog,
+	DMONLY..L0100N1504_FOF as fivehalo 
+
+WHERE 
+    cg.SubGroupNumber = 0  
+    AND cg.MassType_DM > 1.0e10    
+    AND (oneprog.GalaxyID between cg.GalaxyID and cg.TopleafID)
+    AND (twoprog.GalaxyID between cg.GalaxyID and cg.TopleafID)
+    AND (threeprog.GalaxyID between cg.GalaxyID and cg.TopleafID)
+    AND (fourprog.GalaxyID between cg.GalaxyID and cg.TopleafID)
+    AND (fiveprog.GalaxyID between cg.GalaxyID and cg.TopleafID)
+    AND onehalo.GroupID = oneprog.GroupID
+    AND twohalo.GroupID = twoprog.GroupID
+    AND threehalo.GroupID = threeprog.GroupID
+    AND fourhalo.GroupID = fourprog.GroupID
+    AND fivehalo.GroupID = fiveprog.GroupID
+    AND cg.SnapNum = 28
+    AND cg.GroupID = halo.GroupID
+    AND cg.SnapNum = halo.SnapNum
+    AND oneprog.SnapNum = 27
+    AND twoprog.SnapNum = 26
+    AND threeprog.SnapNum =25
+    AND fourprog.SnapNum = 24
+    AND fiveprog.SnapNum = 23
+    AND oneprog.SnapNum = onehalo.SnapNum
+    AND twoprog.SnapNum = twohalo.SnapNum
+    AND threeprog.SnapNum = threehalo.SnapNum
+    AND fourprog.SnapNum = fourhalo.SnapNum
+    AND fiveprog.SnapNum = fivehalo.SnapNum
