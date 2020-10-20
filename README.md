@@ -1,6 +1,6 @@
 **Tractable generative modelling of Cosmological Structure Formation**
 
-The purpose of this project is to show that machine learning can efficiently model non-linear large scale structure formation in the universe. In particular, we use a genrative model, Sum Product Networks, to predict the properties of a galaxy, given a partial history of its dynamical evolution.
+The purpose of this project is to show that machine learning can efficiently model non-linear large scale structure formation in the universe. In particular, we use a generative model, Sum Product Networks, to predict the properties of a galaxy, given a partial history of its dynamical evolution.
 
 The dataset is generated through the [Eagle Simulations](http://icc.dur.ac.uk/Eagle/database.php).
 [Sum-Product Networks](https://arxiv.org/abs/1202.3732) are the generative model used to learn cosmological structure formation.
