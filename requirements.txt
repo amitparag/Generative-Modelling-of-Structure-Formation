@@ -1,0 +1,7 @@
+spflow
+jupyter-notebooks
+graphviz
+matplotlib
+pandas
+numpy
+scipy

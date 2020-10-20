@@ -1,0 +1,155 @@
+#OK
+#SQL= SELECT
+#	gal.SubGroupNumber as SubgroupNumber,
+#	aperture.Mass_BH as massCentralBlackHole,
+#	aperture.Mass_Star as stellarMass,
+#	aperture.VelDisp as velDisp,
+#	aperture.SFR / (aperture.Mass_Star+0.0001) as ssfr,
+#	gal.InitialMassWeightedStellarAge as galAgeOfStars,
+#	halo.Redshift as haloRedshift,
+#	halo.GroupMass as halogroupMass,
+#	halo.Group_M_Crit200 as haloVirialMass,
+#	halo.Group_R_Crit200 as haloVirialRadius,
+#	halo.Group_M_Crit500 as halo500Mass,
+#	halo.Group_R_Crit500 as halo500Radius,
+#	halo.Group_M_Mean200 as halo200meanMass,
+#	halo.Group_R_Mean200 as halo200meanRadius,
+#	halo.Group_M_Mean500 as halo500meanMass,
+#	halo.Group_R_Mean500 as halo500meanRadius,
+#	gal.MassType_DM as MassType_Dm,
+#	gal.HalfMassRad_DM as HalfMassRad_Dm,
+#	(square(gal.GasSpin_x) + square(gal.GasSpin_y) + square(gal.GasSpin_z)) as galGasSpin,
+#	onehalo.Redshift as onehaloRedshift,
+#	onehalo.GroupMass as onehalogroupMass,
+#	onehalo.Group_M_Crit200 as onehaloVirialMass,
+#	onehalo.Group_R_Crit200 as onehaloVirialRadius,
+#	onehalo.Group_M_Crit500 as onehalo500Mass,
+#	onehalo.Group_R_Crit500 as onehalo500Radius,
+#	onehalo.Group_M_Mean200 as onehalo200meanMass,
+#	onehalo.Group_R_Mean200 as onehalo200meanRadius,
+#	onehalo.Group_M_Mean500 as onehalo500meanMass,
+#	onehalo.Group_R_Mean500 as onehalo500meanRadius,
+#	oneprog.MassType_DM as MassType_Dm,
+#	oneprog.HalfMassRad_DM as HalfMassRad_Dm,
+#	(square(oneprog.GasSpin_x) + square(oneprog.GasSpin_y) + square(oneprog.GasSpin_z)) as oneprogGasSpin,
+#	
+#	twohalo.Redshift as twohaloRedshift,
+#	twohalo.GroupMass as twohalogroupMass,
+#	twohalo.Group_M_Crit200 as twohaloVirialMass,
+#	twohalo.Group_R_Crit200 as twohaloVirialRadius,
+#	twohalo.Group_M_Crit500 as twohalo500Mass,
+#	twohalo.Group_R_Crit500 as twohalo500Radius,
+#	twohalo.Group_M_Mean200 as twohalo200meanMass,
+#	twohalo.Group_R_Mean200 as twohalo200meanRadius,
+#	twohalo.Group_M_Mean500 as twohalo500meanMass,
+#	twohalo.Group_R_Mean500 as twohalo500meanRadius,
+#	twoprog.MassType_DM as MassType_Dm,
+#	twoprog.HalfMassRad_DM as HalfMassRad_Dm,
+#	(square(twoprog.GasSpin_x) + square(twoprog.GasSpin_y) + square(twoprog.GasSpin_z)) as twoprogGasSpin,
+#	threehalo.Redshift as threehaloRedshift,
+#	threehalo.GroupMass as threehalogroupMass,
+#	threehalo.Group_M_Crit200 as threehaloVirialMass,
+#	threehalo.Group_R_Crit200 as threehaloVirialRadius,
+#	threehalo.Group_M_Crit500 as threehalo500Mass,
+#	threehalo.Group_R_Crit500 as threehalo500Radius,
+#	threehalo.Group_M_Mean200 as threehalo200meanMass,
+#	threehalo.Group_R_Mean200 as threehalo200meanRadius,
+#	threehalo.Group_M_Mean500 as threehalo500meanMass,
+#	threehalo.Group_R_Mean500 as threehalo500meanRadius,
+#	threeprog.MassType_DM as MassType_Dm,
+#	threeprog.HalfMassRad_DM as HalfMassRad_Dm,
+#	(square(threeprog.GasSpin_x) + square(threeprog.GasSpin_y) + square(threeprog.GasSpin_z)) as threeprogGasSpin
+#	FROM
+#		RefL0100N1504_Subhalo as gal,
+#		RefL0100N1504_Aperture as aperture,
+#		RefL0100N1504_FOF as halo,
+#		RefL0100N1504_Subhalo as oneprog ,
+#		RefL0100N1504_FOF as onehalo ,
+#		RefL0100N1504_Subhalo as twoprog ,
+#		RefL0100N1504_FOF as twohalo ,
+#		RefL0100N1504_Subhalo as threeprog,
+#		RefL0100N1504_FOF as threehalo 
+#	
+#	WHERE
+#	
+#	gal.SubGroupNumber <= 1
+#	AND gal.MassType_DM > 1.0e10
+#	AND aperture.ApertureSize = 30
+#	AND halo.GroupID = gal.GroupID
+#	AND halo.SnapNum = gal.SnapNum
+#	AND gal.SnapNum = 28
+#	AND aperture.GalaxyID = gal.GalaxyID
+#	AND (oneprog.GalaxyID between gal.GalaxyID and gal.TopleafID)
+#	AND (twoprog.GalaxyID between gal.GalaxyID and gal.TopleafID)
+#	AND (threeprog.GalaxyID between gal.GalaxyID and gal.TopleafID)
+#	AND onehalo.GroupID = oneprog.GroupID
+#	AND twohalo.GroupID = twoprog.GroupID
+#	AND threehalo.GroupID = threeprog.GroupID
+#	AND oneprog.SnapNum = 27
+#	AND twoprog.SnapNum = 26
+#	AND threeprog.SnapNum =25
+#	AND oneprog.SnapNum = onehalo.SnapNum
+#	AND twoprog.SnapNum = twohalo.SnapNum
+#	AND threeprog.SnapNum = threehalo.SnapNum    
+#	
+#MAXROWS UNLIMITED
+#QUERYTIMEOUT 1800 sec
+#QUERYTIME 25671 millisec
+#COLUMN 1 name=SubgroupNumber JDBC_TYPE=4 JDBC_TYPENAME=int
+#COLUMN 2 name=massCentralBlackHole JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 3 name=stellarMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 4 name=velDisp JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 5 name=ssfr JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 6 name=galAgeOfStars JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 7 name=haloRedshift JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 8 name=halogroupMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 9 name=haloVirialMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 10 name=haloVirialRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 11 name=halo500Mass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 12 name=halo500Radius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 13 name=halo200meanMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 14 name=halo200meanRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 15 name=halo500meanMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 16 name=halo500meanRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 17 name=MassType_Dm JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 18 name=HalfMassRad_Dm JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 19 name=galGasSpin JDBC_TYPE=8 JDBC_TYPENAME=float
+#COLUMN 20 name=onehaloRedshift JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 21 name=onehalogroupMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 22 name=onehaloVirialMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 23 name=onehaloVirialRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 24 name=onehalo500Mass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 25 name=onehalo500Radius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 26 name=onehalo200meanMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 27 name=onehalo200meanRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 28 name=onehalo500meanMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 29 name=onehalo500meanRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 30 name=MassType_Dm JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 31 name=HalfMassRad_Dm JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 32 name=oneprogGasSpin JDBC_TYPE=8 JDBC_TYPENAME=float
+#COLUMN 33 name=twohaloRedshift JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 34 name=twohalogroupMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 35 name=twohaloVirialMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 36 name=twohaloVirialRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 37 name=twohalo500Mass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 38 name=twohalo500Radius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 39 name=twohalo200meanMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 40 name=twohalo200meanRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 41 name=twohalo500meanMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 42 name=twohalo500meanRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 43 name=MassType_Dm JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 44 name=HalfMassRad_Dm JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 45 name=twoprogGasSpin JDBC_TYPE=8 JDBC_TYPENAME=float
+#COLUMN 46 name=threehaloRedshift JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 47 name=threehalogroupMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 48 name=threehaloVirialMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 49 name=threehaloVirialRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 50 name=threehalo500Mass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 51 name=threehalo500Radius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 52 name=threehalo200meanMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 53 name=threehalo200meanRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 54 name=threehalo500meanMass JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 55 name=threehalo500meanRadius JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 56 name=MassType_Dm JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 57 name=HalfMassRad_Dm JDBC_TYPE=7 JDBC_TYPENAME=real
+#COLUMN 58 name=threeprogGasSpin JDBC_TYPE=8 JDBC_TYPENAME=float
